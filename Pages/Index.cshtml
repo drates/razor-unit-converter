@@ -1,0 +1,91 @@
+﻿@page
+@model IndexModel
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f9f9f9;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        max-width: 400px;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #0078D4;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #005a9e;
+    }
+
+    .result {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #e6f4ea;
+        border-left: 4px solid #2e7d32;
+        font-weight: bold;
+    }
+</style>
+
+
+@{
+    ViewData["Title"] = "Unit Converter";
+}
+
+<h1>Unit Converter</h1>
+
+<form method="post">
+    <div>
+        <label for="InputValue">Enter value:</label>
+        <input type="text" id="InputValue" name="InputValue" />
+    </div>
+    <div>
+        <label for="UnitType">Select conversion:</label>
+        <select id="UnitType" name="UnitType">
+            <option value="length">Length (inches to meters)</option>
+            <option value="temperature">Temperature (Fahrenheit to Celsius)</option>
+</select>
+
+        </select>
+    </div>
+    <button type="submit">Convert</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Result))
+{
+    <div class="result">
+        Result: @Model.Result
+    </div>
+}
+
+
